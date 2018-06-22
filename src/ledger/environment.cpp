@@ -28,6 +28,7 @@ namespace bumo{
 
 	Environment::Environment(Environment* parent){
 
+		// AtomMap parent will be null
 		useAtomMap_ = Configure::Instance().ledger_configure_.use_atom_map_;
 		if (useAtomMap_)
 		{
@@ -36,7 +37,7 @@ namespace bumo{
 		}
 
 		parent_ = parent;
-		if (parent_){
+		if (parent_){ // copy parent account and setting
 			for (auto it = parent_->entries_.begin(); it != parent_->entries_.end(); it++){
 				entries_[it->first] = std::make_shared<AccountFrm>(it->second);
 			}

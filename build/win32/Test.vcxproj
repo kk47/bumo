@@ -100,6 +100,7 @@
     <ClCompile Include="..\..\src\proto\cpp\chain.pb.cc" />
     <ClCompile Include="..\..\src\proto\cpp\common.pb.cc" />
     <ClCompile Include="..\..\src\proto\cpp\consensus.pb.cc" />
+    <ClCompile Include="..\..\test\sharedptr.cpp" />
     <ClCompile Include="..\..\test\testlib\channel.cpp" />
     <ClCompile Include="..\..\test\testlib\test.cpp" />
     <ClCompile Include="..\..\test\testlib\testbubikey.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="..\..\test\testlib\test_v8_terminate.cpp" />
     <ClCompile Include="..\..\test\testlib\test_websocket.cpp" />
     <ClCompile Include="..\..\test\testlib\test_websoketssl.cpp" />
+    <ClCompile Include="multiset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\proto\cpp\common.pb.h" />

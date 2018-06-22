@@ -347,7 +347,8 @@ namespace bumo {
 
 			std::string str_address = transaction_env_.transaction().source_address();
 			AccountFrm::pointer source_account;
-
+			
+			// check account existence
 			if (!environment->GetEntry(str_address, source_account)) {
 				LOG_ERROR("Source account(%s) not exists", str_address.c_str());
 				result_.set_code(protocol::ERRCODE_ACCOUNT_NOT_EXIST);
@@ -356,7 +357,7 @@ namespace bumo {
 
 			//判断序号是否正确
 			int64_t last_seq = source_account->GetAccountNonce();
-			if (last_seq + 1 != GetNonce()) {
+			if (last_seq + 1 != GetNonce()) { // tx nonce should equal to account nonce plus one
 				LOG_ERROR("Account(%s) Tx sequence(" FMT_I64 ") not match reserve sequence (" FMT_I64 " + 1)",
 					str_address.c_str(),
 					GetNonce(),

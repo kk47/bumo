@@ -519,8 +519,8 @@ namespace bumo {
 		}
 
 		std::string con_str = consensus_value.SerializeAsString();
-		std::string chash = HashWrapper::Crypto(con_str);
-		LedgerFrm::pointer closing_ledger = context_manager_.SyncProcess(consensus_value);
+		std::string chash = HashWrapper::Crypto(con_str); 
+		LedgerFrm::pointer closing_ledger = context_manager_.SyncProcess(consensus_value);// apply in here
 		if (closing_ledger == NULL){
 			return false;
 		} 

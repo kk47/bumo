@@ -116,8 +116,8 @@ namespace bumo {
 		std::vector<TransactionFrm::pointer> apply_tx_frms_;
 		std::vector<TransactionFrm::pointer> dropped_tx_frms_;
 		std::string sql_;
-		std::shared_ptr<Environment> environment_;
-		LedgerContext *lpledger_context_;
+		std::shared_ptr<Environment> environment_; // transaction environment ？
+		LedgerContext *lpledger_context_; // last propose ledger context ?
 		int64_t apply_time_;
 		bool enabled_;
 		int64_t total_fee_;

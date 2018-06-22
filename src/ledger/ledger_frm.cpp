@@ -228,10 +228,10 @@ namespace bumo {
 		int64_t start_time = utils::Timestamp::HighResolution();
 		lpledger_context_ = ledger_context;
 		enabled_ = true;
-		value_ = std::make_shared<protocol::ConsensusValue>(request);
+		value_ = std::make_shared<protocol::ConsensusValue>(request); // std::shared_ptr<protocol::ConsensusValue>(&request) ?
 		uint32_t success_count = 0;
 		total_fee_ = 0;
-		environment_ = std::make_shared<Environment>(nullptr);
+		environment_ = std::make_shared<Environment>(nullptr); 
 
 		//init the txs map
 		std::set<int32_t> expire_txs, error_txs;
@@ -252,7 +252,7 @@ namespace bumo {
 				continue;
 			}
 
-			//pay fee
+			//pay fee, balance minus total fee
 			if (!tx_frm->PayFee(environment_, total_fee_)) {
 				dropped_tx_frms_.push_back(tx_frm);
 				proposed_result.need_dropped_tx_.insert(i);//for drop

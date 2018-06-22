@@ -151,7 +151,7 @@ namespace bumo {
 
 			if (propose_result.block_timeout_) {
 				//remove the time out tx
-				//reduct to 1/2
+				//reduct to 1/2, reduce if pre-execute timeout
 				protocol::TransactionEnvSet tmp_raw;
 				for (int32_t i = 0; i < txset_raw.txs_size() / 2; i ++) {
 					*tmp_raw.add_txs() = txset_raw.txs(i);
@@ -190,7 +190,7 @@ namespace bumo {
 			break;
 		} while (true);
 
-		LOG_INFO("Proposed %d tx(s), lcl hash(%s) tx(s)", propose_value.txset().txs_size(),
+		LOG_INFO("Proposed %d tx(s), lcl hash(%s) tx(s)", propose_value.txset().txs_size(), 
 			utils::String::Bin4ToHexString(lcl.hash()).c_str());
 		consensus_->Request(propose_value.SerializeAsString());
 		return true;
