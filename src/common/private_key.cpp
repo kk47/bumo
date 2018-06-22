@@ -114,8 +114,6 @@ namespace bumo {
 			return false;
 		}     
 		
-	   
-
 		bool ret = true;
 		if (prefix_tmp == ADDRESS_PREFIX) {
 			uint8_t a = (uint8_t)buff.at(2); 
